@@ -4,8 +4,9 @@
   <title>Stronghold Finder</title>
   <meta name="generator" content="Google Web Designer 15.2.1.0306">
   <style>body {
-    background-image: url("https://oyster.ignimgs.com/mediawiki/apis.ign.com/minecraft/7/78/Stronghold.png");
+    background-image: url("StrongholdPortal.png");
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 .title {
@@ -133,7 +134,36 @@
 .Btn:hover {
     width: 26%;
     border-radius: 10px;
-}</style>
+}
+.Ins {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 245, 225, 0.9);
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.calcBackIns {
+    background-color: rgba(28, 28, 28, 0.6);
+    border-radius: 10px;
+    transition: all 0.1s ease 0s;
+    padding: 10px;
+    -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+}
+.calcBackIns:hover {
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+}
+</style>
   <script>
         function Calc() {
             x1 = parseInt(document.getElementById("X1").value);
@@ -164,6 +194,12 @@
         function res() {
             document.getElementById("M").style.visibility = "visible";
             document.getElementById("Out").style.visibility = "hidden";
+        }
+        function InsHide(){
+            document.getElementById("Instructions").style.visibility = "hidden"
+        }
+        function InsShow(){
+            document.getElementById("Instructions").style.visibility = "visible"
         }
     </script>
 <style>#pagedeck { overflow: hidden !important; }</style></head>
@@ -209,24 +245,24 @@
                 <tr>
                     <td>
                         <center>
-                            <input id="X3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords before eye" class="Einput">
+                            <input id="X3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="second X coords before eye" class="Einput">
                         </center>
                     </td>
                     <td>
                         <center>
-                            <input id="Z3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords before eye" class="Einput">
+                            <input id="Z3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="second Z coords before eye" class="Einput">
                         </center>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <center>
-                            <input id="X4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords after eye" class="Einput">
+                            <input id="X4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="second X coords after eye" class="Einput">
                         </center>
                     </td>
                     <td>
                         <center>
-                            <input id="Z4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords after eye" class="Einput">
+                            <input id="Z4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="second Z coords after eye" class="Einput">
                         </center>
                     </td>
                 </tr>
@@ -275,11 +311,58 @@
     <div class="ThirBod">
         <table style="width:100%">
             <tbody><tr>
-                <td id="Error" class="calcBackL" style="padding:15px">
+                <td id="Error" class="calcBackL" style="padding:15px; width:70%;">
                     Be aware that these coordinates may not be very accurate, depending on how accurately you followed the instructions. To be sure, throw another ender eye when you get there and you will find it shortly.
+                </td>
+                <td class="calcBack" style="width:10%;" onclick="InsShow()">
+                    <center>
+                        click for
+                        Instructions
+                    </center>
                 </td>
             </tr>
         </tbody></table>
+    </div>
+    <div class="Ins" id="Instructions" style="visibility: hidden;">
+        <table>
+            <tr>
+                <td class="calcBackIns" style="background-color: rgba(66, 54, 0, 0.6);">
+                    <span style="font-size:40px;">Instructions:</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="calcBackIns">
+                    Write your exact X and Z coordinates in the input boxes.
+                </td>
+            </tr>
+            <tr>
+                <td class="calcBackIns">
+                    Throw an ender eye then very carefuly move your player's view to the direction of the eye and walk as many blocks as you want, exactly in that way.
+                </td>
+            </tr>
+            <tr>
+                <td class="calcBackIns">
+                    Look at your new coordinates and write them in the input boxes like before
+                </td>
+            </tr>
+            <tr>
+                <td class="calcBackIns">
+                    As you did before, throw an ender eye, walk in its direction a couple blocks and write the coordinates. Be careful to walk in the exact direction!
+                </td>
+            </tr>
+            <tr>
+                <td class="calcBackIns">
+                    Finally, press "Calculate" and your coordinates will be calculated and shown
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <center>
+                        <input type="button" onclick="InsHide()" value="Done" class="Btn">
+                    </center>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 
