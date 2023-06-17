@@ -166,15 +166,15 @@
 </style>
   <script>
         function Calc() {
-            x1 = parseInt(document.getElementById("X1").value);
-            z1 = parseInt(document.getElementById("Z1").value);
-            X1 = parseInt(document.getElementById("X2").value);
-            Z1 = parseInt(document.getElementById("Z2").value);
+            x1 = parseFloat(document.getElementById("X1").value);
+            z1 = parseFloat(document.getElementById("Z1").value);
+            X1 = parseFloat(document.getElementById("X2").value);
+            Z1 = parseFloat(document.getElementById("Z2").value);
 
-            x2 = parseInt(document.getElementById("X3").value);
-            z2 = parseInt(document.getElementById("Z3").value);
-            X2 = parseInt(document.getElementById("X4").value);
-            Z2 = parseInt(document.getElementById("Z4").value);
+            x2 = parseFloat(document.getElementById("X3").value);
+            z2 = parseFloat(document.getElementById("Z3").value);
+            X2 = parseFloat(document.getElementById("X4").value);
+            Z2 = parseFloat(document.getElementById("Z4").value);
 
             Xs = (z2 - z1 + (x1 * (Z1 - z1)) / (X1 - x1) - (x2 * (Z2 - z2)) / (X2 - x2)) / ((Z1 - z1) / (X1 - x1) - (Z2 - z2) / (X2 - x2));
             Zs = ((Xs - x1) * (Z1 - z1)) / (X1 - x1) + z1;
