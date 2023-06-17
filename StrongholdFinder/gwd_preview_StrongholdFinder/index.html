@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta charset="utf-8">
+  <title>Stronghold Finder</title>
+  <meta name="generator" content="Google Web Designer 15.2.1.0306">
+  <style>body {
+    background-image: url("StrongholdPortal.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.title {
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    right: 10%;
+    padding: 15px;
+    background-color: rgba(128, 128, 128, 0.1);
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    color: rgb(238, 205, 174);
+}
+.MainBod {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    background-color: rgba(128, 128, 128, 0.1);
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    visibility: inherit;
+}
+.SecBod {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.04);
+    color: rgba(255, 245, 225, 0.9);
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    visibility: hidden;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.ThirBod {
+    position: absolute;
+    top: 12%;
+    left: 10%;
+    right: 10%;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.04);
+    color: rgba(255, 245, 225, 0.9);
+    border-radius: 10px;
+    font-size: 30px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+.calcBack {
+    background-color: rgba(28, 28, 28, 0.6);
+    border-radius: 10px;
+    transition: all 0.1s ease 0s;
+    -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+}
+.calcBack:hover {
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+}
+.calcBackL {
+    background-color: rgba(155, 0, 0, 0.6);
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.1s ease 0s;
+    -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+}
+.calcBackL:hover {
+    transform: scale(1.008);
+    -webkit-transform: scale(1.008);
+    -moz-transform: scale(1.008);
+}
+.Einput {
+    width: 70%;
+    border-radius: 10px;
+    height: 40px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(28, 28, 28, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 2px solid grey;
+    transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+}
+.Einput:hover {
+    width: 72%;
+}
+.Btn {
+    width: 25%;
+    height: 40px;
+    border-radius: 50px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-image: initial;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(28, 28, 28, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-bottom: 2px solid grey;
+    transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+}
+.Btn:hover {
+    width: 26%;
+    border-radius: 10px;
+}</style>
+  <script>
+        function Calc() {
+            x1 = parseInt(document.getElementById("X1").value);
+            z1 = parseInt(document.getElementById("Z1").value);
+            X1 = parseInt(document.getElementById("X2").value);
+            Z1 = parseInt(document.getElementById("Z2").value);
+
+            x2 = parseInt(document.getElementById("X3").value);
+            z2 = parseInt(document.getElementById("Z3").value);
+            X2 = parseInt(document.getElementById("X4").value);
+            Z2 = parseInt(document.getElementById("Z4").value);
+
+            Xs = (z2 - z1 + (x1 * (Z1 - z1)) / (X1 - x1) - (x2 * (Z2 - z2)) / (X2 - x2)) / ((Z1 - z1) / (X1 - x1) - (Z2 - z2) / (X2 - x2));
+            Zs = ((Xs - x1) * (Z1 - z1)) / (X1 - x1) + z1;
+
+            document.getElementById("Loc").innerText = "The stronghold is located in " + Xs + " ~ " + Zs;
+            document.getElementById("Command").innerHTML = "If you want to tp to the loacation copy this: <br/> /tp @s " + Xs + " ~ " + Zs;
+
+            if (isNaN(Xs) || isNaN(Zs)) {
+                document.getElementById("Error").innerHTML = "There was a problem while calculating the loacation! <br/> Please try again..."
+            }
+            else {
+                document.getElementById("M").style.visibility = "hidden";
+                document.getElementById("Out").style.visibility = "inherit";
+                document.getElementById("Error").innerHTML = "Be aware that these coordinates may not be very accurate, depending on how accurately you followed the instructions. To be sure, throw another ender eye when you get there and you will find it shortly.";
+            }
+        }
+        function res() {
+            document.getElementById("M").style.visibility = "visible";
+            document.getElementById("Out").style.visibility = "hidden";
+        }
+    </script>
+<style>#pagedeck { overflow: hidden !important; }</style></head>
+
+<body class="htmlNoPages">
+  <div>
+    <div class="title">
+        <center>
+            stronghold finder
+        </center>
+    </div>
+    <div class="MainBod" id="M">
+        <center>
+            <table style="width:100%; padding:10px">
+                <tbody><tr>
+                    <td>
+                        <center>
+                            <input id="X1" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords before eye" class="Einput">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input id="Z1" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords before eye" class="Einput">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <input id="X2" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords after eye" class="Einput">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input id="Z2" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords after eye" class="Einput">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="height:10px" colspan="2">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <input id="X3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords before eye" class="Einput">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input id="Z3" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords before eye" class="Einput">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <input id="X4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first X coords after eye" class="Einput">
+                        </center>
+                    </td>
+                    <td>
+                        <center>
+                            <input id="Z4" type="text" title="only numbers are allowed" pattern="[0-9]" placeholder="first Z coords after eye" class="Einput">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <br>
+                            <input type="button" onclick="Calc()" value="Calculate" class="Btn">
+                        </center>
+                    </td>
+                </tr>
+            </tbody></table>
+        </center>
+    </div>
+    <div class="SecBod" id="Out">
+        <center>
+            <table style="width:70%">
+                <tbody><tr>
+                    <td class="calcBack" style="padding:10px; border-bottom:2px solid">
+                        <center>
+                            The stronghold's coordinates are ready!
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="calcBack" id="Loc" style="padding:15px; padding-top:20px">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="calcBack" id="Command" style="padding:15px">
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <center>
+                            <br>
+                            <button type="reset" class="Btn" onclick="res()">Calculate another one</button>
+                        </center>
+                    </td>
+                </tr>
+            </tbody></table>
+        </center>
+    </div>
+    <div class="ThirBod">
+        <table style="width:100%">
+            <tbody><tr>
+                <td id="Error" class="calcBackL" style="padding:15px">
+                    Be aware that these coordinates may not be very accurate, depending on how accurately you followed the instructions. To be sure, throw another ender eye when you get there and you will find it shortly.
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+
+</body></html>
