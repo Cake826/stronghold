@@ -191,7 +191,7 @@
             Xs = (z2 - z1 + (x1 * (Z1 - z1)) / (X1 - x1) - (x2 * (Z2 - z2)) / (X2 - x2)) / ((Z1 - z1) / (X1 - x1) - (Z2 - z2) / (X2 - x2));
             Zs = ((Xs - x1) * (Z1 - z1)) / (X1 - x1) + z1;
 
-            document.getElementById("Loc").innerText = "The stronghold is located in " + Xs + " ~ " + Zs;
+            document.getElementById("Loc").innerText = "The stronghold is located at " + Xs + " ~ " + Zs;
             document.getElementById("Command").innerHTML = "If you want to tp to the loacation copy this: <br/> /tp @s " + Xs + " ~ " + Zs;
 
             if (isNaN(Xs) || isNaN(Zs)) {
