@@ -156,8 +156,21 @@
 }
 .calcBackIns:hover {
     transform: scale(1.02);
+    background-color: rgba(128, 128, 128, 0.6);
     -webkit-transform: scale(1.02);
     -moz-transform: scale(1.02);
+}
+#Inst{
+    background-color: rgba(66, 54, 0, 0.6);
+    border-radius: 10px;
+    transition: all 0.1s ease 0s;
+    padding: 20px;
+    -webkit-transition: all 0.1s ease 0s;
+    -moz-transition: all 0.1s ease 0s;
+}
+#Inst:hover{
+    transform: scale(1.02);
+    background-color: rgba(148, 124, 16, 0.6);
 }
 .Credits {
     position: absolute;
@@ -313,7 +326,7 @@
                     <td>
                         <center>
                             <br>
-                            <button type="reset" class="Btn" onclick="res()">Calculate another one</button>
+                            <button type="reset" class="Btn" onclick="res()" style="width: 30%;">Calculate another one</button>
                         </center>
                     </td>
                 </tr>
@@ -338,7 +351,7 @@
     <div class="Ins" id="Instructions" style="visibility: hidden;">
         <table>
             <tr>
-                <td class="calcBackIns" style="background-color: rgba(66, 54, 0, 0.6);">
+                <td class="calcBackIns" id="Inst">
                     <span style="font-size:40px;">Instructions:</span>
                 </td>
             </tr>
